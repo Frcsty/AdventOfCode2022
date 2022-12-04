@@ -52,11 +52,11 @@ public final class Day_3 extends DayClass {
 
     private record Compartment(String contents) {
 
-        boolean contains(final char character) {
+        private boolean contains(final char character) {
             return this.contents.contains(String.valueOf(character));
         }
 
-        static Character shared(final List<Compartment> compartments) {
+        private static Character shared(final List<Compartment> compartments) {
             Character result = null;
 
             for (final char character : LETTER_PRIORITIES.toCharArray()) {

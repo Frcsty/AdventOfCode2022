@@ -67,15 +67,15 @@ public final class Day_2 extends DayClass {
             this.score = score;
         }
 
-        static GameMapping mappingFor(final String symbol) {
+        private static GameMapping mappingFor(final String symbol) {
             return Arrays.stream(values()).filter(it -> it.symbol.equalsIgnoreCase(symbol) || it.secondSymbol.equalsIgnoreCase(symbol)).findFirst().get();
         }
 
-        static GameMapping counterFor(final GameMapping mapping) {
+        private static GameMapping counterFor(final GameMapping mapping) {
             return Arrays.stream(values()).filter(it -> it.counter.equalsIgnoreCase(mapping.symbol)).findFirst().get();
         }
 
-        static ResultMapping resultFor(final GameMapping opponent, final GameMapping self) {
+        private static ResultMapping resultFor(final GameMapping opponent, final GameMapping self) {
             if (opponent.symbol.equals(self.symbol)) {
                 return ResultMapping.DRAW;
             }
@@ -87,7 +87,7 @@ public final class Day_2 extends DayClass {
             return ResultMapping.LOSS;
         }
 
-        static GameMapping responseFor(final GameMapping opponent, final ResultMapping result) {
+        private static GameMapping responseFor(final GameMapping opponent, final ResultMapping result) {
             GameMapping response = null;
 
             switch (result) {
@@ -115,7 +115,7 @@ public final class Day_2 extends DayClass {
             this.symbol = symbol;
         }
 
-        static ResultMapping resultFor(final String symbol) {
+        private static ResultMapping resultFor(final String symbol) {
             return Arrays.stream(values()).filter(it -> it.symbol.equalsIgnoreCase(symbol)).findFirst().get();
         }
 
