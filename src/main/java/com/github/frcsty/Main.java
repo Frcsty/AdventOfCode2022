@@ -1,9 +1,6 @@
 package com.github.frcsty;
 
-import com.github.frcsty.day.Day_1;
-import com.github.frcsty.day.Day_2;
-import com.github.frcsty.day.Day_3;
-import com.github.frcsty.day.Day_4;
+import com.github.frcsty.day.*;
 import com.github.frcsty.registry.DayClass;
 
 import java.util.Calendar;
@@ -14,7 +11,7 @@ public class Main {
 
     private static final Calendar CALENDAR = Calendar.getInstance();
     private static final Set<DayClass> classes = Set.of(
-            new Day_1(), new Day_2(), new Day_3(), new Day_4()
+            new Day_1(), new Day_2(), new Day_3(), new Day_4(), new Day_5()
     );
 
     public static void main(final String[] args) {
