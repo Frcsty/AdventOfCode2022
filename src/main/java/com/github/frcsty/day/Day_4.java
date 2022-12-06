@@ -11,7 +11,7 @@ public final class Day_4 extends DayClass {
 
     @Override
     public void process() {
-        readInput(this).lines().forEach(line -> {
+        readInput().lines().forEach(line -> {
             final Pair<String, String> pair = argumentLine(line, ",");
             final Pair<Range, Range> range = convert(pair);
 
@@ -21,7 +21,7 @@ public final class Day_4 extends DayClass {
 
     @Override
     public void processSecond() {
-        readInput(this).lines().forEach(line -> {
+        readInput().lines().forEach(line -> {
             final Pair<String, String> pair = argumentLine(line, ",");
             final Pair<Range, Range> range = convert(pair);
 

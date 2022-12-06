@@ -13,7 +13,7 @@ public final class Day_1 extends DayClass {
     public void process() {
         final AtomicInteger calories = new AtomicInteger(0);
 
-        readInput(this).lines().forEach(line -> {
+        readInput().lines().forEach(line -> {
             if (line.length() == 0) {
                 COUNT.put(UUID.randomUUID(), calories.intValue());
                 calories.set(0);

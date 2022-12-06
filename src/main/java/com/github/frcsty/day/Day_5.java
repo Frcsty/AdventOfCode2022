@@ -14,7 +14,7 @@ public final class Day_5 extends DayClass {
 
     @Override
     public void process() {
-        final Pair<LinkedList<String>, LinkedList<String>> input = readSplitInput(this);
+        final Pair<LinkedList<String>, LinkedList<String>> input = readSplitInput();
 
         input.first().forEach(current -> {
             String parsed = replaceWhitespaces(current, 4);
@@ -49,7 +49,7 @@ public final class Day_5 extends DayClass {
 
     @Override
     public void processSecond() {
-        final Pair<LinkedList<String>, LinkedList<String>> input = readSplitInput(this);
+        final Pair<LinkedList<String>, LinkedList<String>> input = readSplitInput();
 
         input.second().forEach(line -> {
             final Move move = new Move(line);

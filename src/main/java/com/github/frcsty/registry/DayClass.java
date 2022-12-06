@@ -7,28 +7,24 @@ import java.util.*;
 
 public abstract class DayClass {
 
-    public void process() {
-    }
+    public void process() { }
 
-    public void processSecond() {
-    }
+    public void processSecond() { }
 
-    public void displayResult() {
-    }
+    public void displayResult() { }
 
-    public void displaySecondResult() {
-    }
+    public void displaySecondResult() { }
 
-    public BufferedReader readInput(final DayClass clazz) {
+    public BufferedReader readInput() {
         try {
-            return new BufferedReader(new FileReader("D:\\Projects\\IntelliJ\\Random\\AdventOfCode2022\\src\\main\\resources\\puzzle_input\\" + clazz.getClass().getSimpleName()));
+            return new BufferedReader(new FileReader("D:\\Projects\\IntelliJ\\Random\\AdventOfCode2022\\src\\main\\resources\\puzzle_input\\" + this.getClass().getSimpleName()));
         } catch (final IOException exception) {
-            throw new RuntimeException("Failed to read file for class '" + clazz + "'!");
+            throw new RuntimeException("Failed to read file for class '" + this + "'!");
         }
     }
 
-    public Pair<LinkedList<String>, LinkedList<String>> readSplitInput(final DayClass clazz) {
-        final BufferedReader reader = readInput(clazz);
+    public Pair<LinkedList<String>, LinkedList<String>> readSplitInput() {
+        final BufferedReader reader = readInput();
         final LinkedList<String> lines = new LinkedList<>(reader.lines().toList());
 
         final LinkedList<String> first = new LinkedList<>();
@@ -53,8 +49,8 @@ public abstract class DayClass {
         return new Pair<>(firstReversed, second);
     }
 
-    public List<Set<String>> readGroupedInput(final DayClass clazz, final int combined) {
-        final BufferedReader reader = readInput(clazz);
+    public List<Set<String>> readGroupedInput(final int combined) {
+        final BufferedReader reader = readInput();
         final List<String> lines = reader.lines().toList();
 
         final List<Set<String>> result = new ArrayList<>();
@@ -76,7 +72,6 @@ public abstract class DayClass {
         return new Pair<>(split[0], split[1]);
     }
 
-    public record Pair<T, Z>(T first, Z second) {
-    }
+    public record Pair<T, Z>(T first, Z second) { }
 
 }

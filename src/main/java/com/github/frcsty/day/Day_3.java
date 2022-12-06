@@ -13,7 +13,7 @@ public final class Day_3 extends DayClass {
 
     @Override
     public void process() {
-        readInput(this).lines().forEach(line -> {
+        readInput().lines().forEach(line -> {
             final Character character = Compartment.shared(compartments(line));
 
             COUNT.getAndAdd(priority(character));
@@ -22,7 +22,7 @@ public final class Day_3 extends DayClass {
 
     @Override
     public void processSecond() {
-        readGroupedInput(this, 3).forEach(group -> {
+        readGroupedInput(3).forEach(group -> {
             final Character character = Compartment.shared(group.stream().map(Compartment::new).toList());
 
             SECOND_COUNT.getAndAdd(priority(character));

@@ -13,7 +13,7 @@ public final class Day_2 extends DayClass {
 
     @Override
     public void process() {
-        readInput(this).lines().forEach(line -> {
+        readInput().lines().forEach(line -> {
             final Pair<String, String> input = argumentLine(line, " ");
 
             final GameMapping opponent = GameMapping.mappingFor(input.first());
@@ -26,7 +26,7 @@ public final class Day_2 extends DayClass {
 
     @Override
     public void processSecond() {
-        readInput(this).lines().forEach(line -> {
+        readInput().lines().forEach(line -> {
             final Pair<String, String> input = argumentLine(line, " ");
 
             final GameMapping opponent = GameMapping.mappingFor(input.first());
