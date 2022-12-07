@@ -7,6 +7,9 @@ import java.util.*;
 
 public abstract class DayClass {
 
+    private static final Calendar CALENDAR = Calendar.getInstance();
+    private static final String PUZZLE_INPUT = "D:\\Projects\\IntelliJ\\Random\\AdventOfCode2022\\src\\main\\resources\\puzzle_input\\day_";
+
     public void process() { }
 
     public void processSecond() { }
@@ -17,10 +20,14 @@ public abstract class DayClass {
 
     public BufferedReader readInput() {
         try {
-            return new BufferedReader(new FileReader("D:\\Projects\\IntelliJ\\Random\\AdventOfCode2022\\src\\main\\resources\\puzzle_input\\" + this.getClass().getSimpleName()));
+            return new BufferedReader(new FileReader(PUZZLE_INPUT + today()));
         } catch (final IOException exception) {
             throw new RuntimeException("Failed to read file for class '" + this + "'!");
         }
+    }
+
+    private int today() {
+        return CALENDAR.get(Calendar.DAY_OF_MONTH);
     }
 
     public Pair<LinkedList<String>, LinkedList<String>> readSplitInput() {
@@ -72,6 +79,16 @@ public abstract class DayClass {
         return new Pair<>(split[0], split[1]);
     }
 
+    public TriPair<String, String, String> splitCommand(final String input, final String spliterator) {
+        final String[] content = input.split(spliterator);
+        final String command = content[0];
+
+        if (command.equalsIgnoreCase("$")) return new TriPair<>(command, content[1], content.length == 3 ? content[2] : null);
+        return new TriPair<>(null, content[0], content[1]);
+    }
+
     public record Pair<T, Z>(T first, Z second) { }
+
+    public record TriPair<T, Z, Y>(T first, Z second, Y third) { }
 
 }
