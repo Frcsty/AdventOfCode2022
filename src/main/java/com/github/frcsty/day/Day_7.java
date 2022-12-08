@@ -2,8 +2,8 @@ package com.github.frcsty.day;
 
 import com.github.frcsty.registry.DayClass;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 public final class Day_7 extends DayClass {
@@ -38,7 +38,8 @@ public final class Day_7 extends DayClass {
                             }
                         }
                     }
-                    case "ls" -> {} //print();
+                    case "ls" -> {
+                    } //print();
                 }
                 return;
             }
@@ -81,7 +82,7 @@ public final class Day_7 extends DayClass {
 
     private static class Directory {
 
-        private final Set<Directory> directories = new HashSet<>();
+        private final List<Directory> directories = new ArrayList<>();
         private final int size;
         private final String name;
         private final Directory parent;
@@ -113,8 +114,8 @@ public final class Day_7 extends DayClass {
         long count() {
             long count = this.size == -1 ? 0 : this.size;
 
-            for (final Directory child : this.directories) {
-                count += child.count();
+            for (int index = 0; index < this.directories.size(); index++) {
+                count += this.directories.get(index).count();
             }
 
             return count;
